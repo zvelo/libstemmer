@@ -9,9 +9,7 @@ FILE(GLOB SNOWBALL_SOURCES
   libstemmer/libstemmer.c
 )
 
-ADD_LIBRARY(stemmer SHARED ${SNOWBALL_SOURCES})
-ADD_LIBRARY(stemmer-static STATIC ${SNOWBALL_SOURCES})
-SET_TARGET_PROPERTIES(stemmer-static PROPERTIES OUTPUT_NAME "stemmer")
+ADD_LIBRARY(stemmer ${SNOWBALL_SOURCES})
 
-INSTALL(TARGETS stemmer stemmer-static DESTINATION lib)
+INSTALL(TARGETS stemmer DESTINATION lib)
 INSTALL(FILES include/libstemmer.h DESTINATION include)
